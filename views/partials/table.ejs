@@ -1,0 +1,31 @@
+
+
+<div class="table-container overflow-auto">
+<table class="bg-slate-900 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 text-white">
+    <tbody>
+        <tr>
+            <th class="px-4 py-2">S.No</th>
+            <th class="px-4 py-2">ShortUrl</th>
+            <th class="px-4 py-2">redirectUrl</th>
+            <th class="px-4 py-2">clicks</th>
+            <th class="px-4 py-2">CopyShortsUrl</th>
+        </tr>
+       
+<% if (locals.linksData.length>0) { %>
+ <% for( let i = 0; i < linksData.length; i++ ) { %>
+ 
+    <tr class="border-b-2 border-white">
+        <td class="border-t border-white px-4 py-2 font-semibold"> <%=i+1  %></td>
+        <td><%= linksData[i].shortUrl %></td>
+        <td class="border-t border-white px-4 py-2"><%= linksData[i].redirectUrl %></td>
+        <td class="border-t border-white px-4 py-2"><%= linksData[i].visitHistory.length %></td>
+        
+        <td><button onclick="copyToClipboard('<%= linksData[i].shortUrl %>')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-3">copy</button></td>
+    </tr>
+
+ <% } %>
+        <% } %>
+    </tbody>
+</table>
+
+</div>

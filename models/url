@@ -1,0 +1,25 @@
+const mongoose=require('mongoose')
+
+const urlSchema=mongoose.Schema({
+   shortUrl:String,
+    redirectUrl: {
+        type: String,
+        
+        required: [true,"plz enter the url"]
+    },
+    visitHistory:[{timestamps:{type:Number}}],
+    createdBy:{type:mongoose.Schema.Types.ObjectId,
+        ref:("users")
+    }
+
+    
+   
+
+    
+       
+    
+},{
+    timestamps: true,
+})
+
+module.exports=mongoose.model("url",urlSchema)
