@@ -23,6 +23,11 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(cookieParser())
 app.set('view engine','ejs')
 const ejs=require("ejs")
+const path=require('path')
+
+
+app.set('views', path.join(__dirname, 'views'));
+
 
 //middlewares for routes
 app.use("/user",userRoute) 
